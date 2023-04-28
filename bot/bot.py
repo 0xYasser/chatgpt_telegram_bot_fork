@@ -36,9 +36,9 @@ import openai_utils
 
 import gettext
 _ = gettext.gettext
-# ar = gettext.translation('base', localedir='locale', languages=['ar'])
-# ar.install()
-# _ = ar.gettext # Arabic
+ar = gettext.translation('base', localedir='locale', languages=['ar'])
+ar.install()
+_ = ar.gettext # Arabic
 
 
 
@@ -414,7 +414,7 @@ async def new_dialog_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
 
     db.start_new_dialog(user_id)
-    await update.message.reply_text("Starting new dialog ✅")
+    await update.message.reply_text(_("Starting new dialog ✅"))
 
     chat_mode = db.get_user_attribute(user_id, "current_chat_mode")
     await update.message.reply_text(f"{config.chat_modes[chat_mode]['welcome_message']}", parse_mode=ParseMode.HTML)
@@ -435,7 +435,7 @@ async def cancel_handle(update: Update, context: CallbackContext):
 
 def get_chat_mode_menu(page_index: int):
     n_chat_modes_per_page = config.n_chat_modes_per_page
-    text = f"Select <b>chat mode</b> ({len(config.chat_modes)} modes available):"
+    text = f"Select <b>chat mode</b>:"
 
     # buttons
     chat_mode_keys = list(config.chat_modes.keys())
@@ -694,7 +694,7 @@ def run_bot() -> None:
 
     application.add_handler(MessageHandler(filters.VOICE & user_filter, voice_message_handle))
 
-    application.add_handler(CommandHandler("mode", show_chat_modes_handle, filters=user_filter))
+    application.add_handler(CommandHandler("role", show_chat_modes_handle, filters=user_filter))
     application.add_handler(CallbackQueryHandler(show_chat_modes_callback_handle, pattern="^show_chat_modes"))
     application.add_handler(CallbackQueryHandler(set_chat_mode_handle, pattern="^set_chat_mode"))
 
