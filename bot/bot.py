@@ -34,6 +34,13 @@ import config
 import cosmosdb as database
 import openai_utils
 
+import gettext
+_ = gettext.gettext
+# ar = gettext.translation('base', localedir='locale', languages=['ar'])
+# ar.install()
+# _ = ar.gettext # Arabic
+
+
 
 # setup
 db = database.Database()
@@ -42,20 +49,20 @@ logger = logging.getLogger(__name__)
 user_semaphores = {}
 user_tasks = {}
 
-HELP_MESSAGE = """Commands:
-⚪ /retry – Regenerate last bot answer
-⚪ /new – Start new dialog
-⚪ /mode – Select chat mode
-⚪ /settings – Show settings
-⚪ /balance – Show balance
-⚪ /help – Show help
+HELP_MESSAGE = f"""Commands:
+⚪ /retry – {_('Regenerate last bot answer')}
+⚪ /new – {_('Start new dialog')}
+⚪ /role – {_('Select assistant role')} 
+⚪ /settings – {_('Show settings')}
+⚪ /balance – {_('Show balance')}
+⚪ /help – {_('Show help')}
 
-🎨 Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode
-👥 Add bot to <b>group chat</b>: /help_group_chat
-🎤 You can send <b>Voice Messages</b> instead of text
+🎨 {_('Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode')}
+👥 {_('Add bot to <b>group chat</b>: /help_group_chat')}
+🎤 {_('You can send <b>Voice Messages</b> instead of text')}
 """
 
-HELP_GROUP_CHAT_MESSAGE = """You can add bot to any <b>group chat</b> to help and entertain its participants!
+HELP_GROUP_CHAT_MESSAGE = _("""You can add bot to any <b>group chat</b> to help and entertain its participants!
 
 Instructions (see <b>video</b> below):
 1. Add the bot to the group chat
@@ -64,7 +71,7 @@ Instructions (see <b>video</b> below):
 
 To get a reply from the bot in the chat – @ <b>tag</b> it or <b>reply</b> to its message.
 For example: "{bot_username} write a poem about Telegram"
-"""
+""")
 
 
 def split_text_into_chunks(text, chunk_size):
@@ -138,7 +145,7 @@ async def start_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     db.start_new_dialog(user_id)
 
-    reply_text = "Hi! I'm <b>ChatGPT</b> bot implemented with OpenAI API 🤖\n\n"
+    reply_text = _("Hi! I'm <b>ChatGPT</b> bot implemented with OpenAI API 🤖\n\n")
     reply_text += HELP_MESSAGE
 
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
@@ -289,7 +296,7 @@ async def message_handle(update: Update, context: CallbackContext, message=None,
             raise
 
         except Exception as e:
-            error_text = f"Something went wrong during completion. Reason: {e}"
+            error_text = f"{_('Something went wrong during completion. Reason:')} {e}"
             logger.error(error_text)
             await update.message.reply_text(error_text)
             return
@@ -297,9 +304,9 @@ async def message_handle(update: Update, context: CallbackContext, message=None,
         # send message if some messages were removed from the context
         if n_first_dialog_messages_removed > 0:
             if n_first_dialog_messages_removed == 1:
-                text = "✍️ <i>Note:</i> Your current dialog is too long, so your <b>first message</b> was removed from the context.\n Send /new command to start new dialog"
+                text = _("✍️ <i>Note:</i> Your current dialog is too long, so your <b>first message</b> was removed from the context.\n Send /new command to start new dialog")
             else:
-                text = f"✍️ <i>Note:</i> Your current dialog is too long, so <b>{n_first_dialog_messages_removed} first messages</b> were removed from the context.\n Send /new command to start new dialog"
+                text = f"{_('✍️ <i>Note:</i> Your current dialog is too long, so <b>')} {n_first_dialog_messages_removed} {_('first messages</b> were removed from the context. Send /new command to start new dialog')}"
             await update.message.reply_text(text, parse_mode=ParseMode.HTML)
 
     async with user_semaphores[user_id]:
@@ -322,8 +329,8 @@ async def is_previous_message_not_answered_yet(update: Update, context: Callback
 
     user_id = update.message.from_user.id
     if user_semaphores[user_id].locked():
-        text = "⏳ Please <b>wait</b> for a reply to the previous message\n"
-        text += "Or you can /cancel it"
+        text = _("⏳ Please <b>wait</b> for a reply to the previous message\n")
+        text += _("Or you can /cancel it")
         await update.message.reply_text(text, reply_to_message_id=update.message.id, parse_mode=ParseMode.HTML)
         return True
     else:
@@ -385,7 +392,7 @@ async def generate_image_handle(update: Update, context: CallbackContext, messag
         image_urls = await openai_utils.generate_images(message, n_images=config.return_n_generated_images)
     except openai.error.InvalidRequestError as e:
         if str(e).startswith("Your request was rejected as a result of our safety system"):
-            text = "🥲 Your request <b>doesn't comply</b> with OpenAI's usage policies.\nWhat did you write there, huh?"
+            text = _("🥲 Your request <b>doesn't comply</b> with OpenAI's usage policies.\nWhat did you write there, huh?")
             await update.message.reply_text(text, parse_mode=ParseMode.HTML)
             return
         else:
@@ -651,12 +658,12 @@ async def error_handle(update: Update, context: CallbackContext) -> None:
 
 async def post_init(application: Application):
     await application.bot.set_my_commands([
-        BotCommand("/new", "Start new dialog"),
-        BotCommand("/mode", "Select chat mode"),
-        BotCommand("/retry", "Re-generate response for previous query"),
-        BotCommand("/balance", "Show balance"),
-        BotCommand("/settings", "Show settings"),
-        BotCommand("/help", "Show help message"),
+        BotCommand("/new", _("Start new dialog")),
+        BotCommand("/role", _("Select assistant role")),
+        BotCommand("/retry", _("Re-generate response for previous query")),
+        BotCommand("/balance", _("Show balance")),
+        BotCommand("/settings", _("Show settings")),
+        BotCommand("/help", _("Show help message")),
     ])
 
 def run_bot() -> None:
