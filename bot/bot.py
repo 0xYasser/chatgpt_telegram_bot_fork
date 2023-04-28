@@ -33,10 +33,10 @@ from telegram.constants import ParseMode, ChatAction
 import config
 import cosmosdb as database
 import openai_utils
-
+from pathlib import Path
 import gettext
 _ = gettext.gettext
-ar = gettext.translation('base', localedir='locale', languages=['ar'])
+ar = gettext.translation('base', localedir=Path(__file__).resolve() / "locale", languages=['ar'], fallback=True)
 ar.install()
 _ = ar.gettext # Arabic
 
