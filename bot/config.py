@@ -22,7 +22,8 @@ cosmosdb_database_id = os.environ["COSMOSDB_DATABASE_ID"]
 
 
 use_chatgpt_api = config_yaml.get("use_chatgpt_api", True)
-allowed_telegram_usernames = config_yaml["allowed_telegram_usernames"]
+env_allowed_users = os.environ.get('ALLOWED_TELEGRAM_USERNAMES', '')
+allowed_telegram_usernames = (lambda s: s.split(',') if s else [])(os.environ.get('ALLOWED_TELEGRAM_USERNAMES', ''))
 new_dialog_timeout = config_yaml.get("new_dialog_timeout", 600)
 enable_message_streaming = config_yaml.get("enable_message_streaming", True)
 return_n_generated_images = config_yaml.get("return_n_generated_images", 1)
