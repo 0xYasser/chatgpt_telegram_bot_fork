@@ -70,6 +70,18 @@ msgid ""
 "\n"
 msgstr "انا مساعدك الشخصي. مبني عن طريق . تستطيع التحدث معي بأي لغة. كتابة او صوت ايضا! OpenAPI ChatGPT"
 
+#: ../../../bot/bot.py:222
+msgid "Starting new dialog due to timeout"
+msgstr "بدأ حوار جديد بسبب نفاذ الوقت "
+
+#: ../../../bot/bot.py:222
+msgid "role ✅"
+msgstr "دور ✅"
+
+#: ../../../bot/bot.py:237
+msgid "🥲 You sent <b>empty message</b>. Please, try again!"
+msgstr "لقد قمت بإرسال رسالة فارغة، حاول مرة اخر 🥲"
+
 #: bot/bot.py:299
 msgid "Something went wrong during completion. Reason:"
 msgstr "حصل خطئ اثناء اكمال المهمة: "
