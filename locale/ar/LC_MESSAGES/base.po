@@ -68,7 +68,7 @@ msgstr "يمكنك اضافة المساعد الى اي مجموعة دردشة
 msgid ""
 "Hi! I'm <b>ChatGPT</b> bot implemented with OpenAI API 🤖\n"
 "\n"
-msgstr "انا مساعدك الشخصي. مبني عن طريق OpenAPI ChatGPT"
+msgstr "انا مساعدك الشخصي. مبني عن طريق . تستطيع التحدث معي بأي لغة. كتابة او صوت ايضا! OpenAPI ChatGPT"
 
 #: bot/bot.py:299
 msgid "Something went wrong during completion. Reason:"
