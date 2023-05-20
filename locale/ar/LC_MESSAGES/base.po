@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-04-28 15:36-0700\n"
+"POT-Creation-Date: 2023-05-20 15:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,15 @@ msgstr ""
 
 #: bot/bot.py:52
 msgid "Add bot to <b>group chat</b>: /help_group_chat"
-msgstr "تستطيع اضافة المساعد الى اي محادثة جماعية عن طريق /help_group_chat "
+msgstr "تستطيع اضافة علّام الى اي محادثة جماعية عن طريق /help_group_chat"
+
+#: bot/bot.py:52
+msgid "Commands"
+msgstr "الأوامر"
 
 #: bot/bot.py:52
 msgid "Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode"
-msgstr "قم بسؤال المساعد لرسم صورة معينة"
+msgstr "قم بسؤال علّام لرسم صورة معينة"
 
 #: bot/bot.py:52
 msgid "Regenerate last bot answer"
@@ -29,29 +33,21 @@ msgstr "طلب اجابة جديدة للسؤال السابق"
 
 #: bot/bot.py:52
 msgid "Show help"
-msgstr "عرض رسالة المساعدة"
+msgstr "طريقة إستخدام علّام"
 
 #: bot/bot.py:52
 msgid "You can send <b>Voice Messages</b> instead of text"
-msgstr "يمكنك إرسال <b> الرسائل الصوتية </b> بدلاً من النص"
+msgstr "تستطيع ارسال رسالة صوتية، وسيقوم علّام بسماعها والإجابة كتابيا عليها"
 
-#: bot/bot.py:52 bot/bot.py:661
+#: bot/bot.py:52 bot/bot.py:659
 msgid "Start new dialog"
-msgstr "ابدأ حوار جديد"
+msgstr "طريقة إستخدام علّام"
 
-#: bot/bot.py:52 bot/bot.py:662
+#: bot/bot.py:52 bot/bot.py:660
 msgid "Select assistant role"
-msgstr "حدد دور المساعد"
+msgstr "إختيار وظيفة علّام"
 
-#: bot/bot.py:52 bot/bot.py:664
-msgid "Show balance"
-msgstr "عرض الرصيد والاستخدام"
-
-#: bot/bot.py:52 bot/bot.py:665
-msgid "Show settings"
-msgstr "عرض الخصائص"
-
-#: bot/bot.py:65
+#: bot/bot.py:63
 msgid ""
 "You can add bot to any <b>group chat</b> to help and entertain its participants!\n"
 "\n"
@@ -62,72 +58,84 @@ msgid ""
 "\n"
 "To get a reply from the bot in the chat – @ <b>tag</b> it or <b>reply</b> to its message.\n"
 "For example: \"{bot_username} write a poem about Telegram\"\n"
-msgstr "يمكنك اضافة المساعد الى اي مجموعة دردشة. 1. قم بإضافة المساعد الى اي مجموعة انت رئيسها. 2. قم بإعطا المساعد صلاحية رئيس كي يتمنك من قراءة الرسائل والرد عليها"
+msgstr "يمكن اضافة علّام الى اي مجموعة محادثة. يجب اعطاء علّام دور المدير العام ليتمكن من الرد على الإستفسارات"
 
-#: bot/bot.py:148
+#: bot/bot.py:146
 msgid ""
-"Hi! I'm <b>ChatGPT</b> bot implemented with OpenAI API 🤖\n"
+"Hi! I'm <b>Allam</b> bot implemented with OpenAI API 🤖\n"
 "\n"
-msgstr "انا مساعدك الشخصي. مبني عن طريق . تستطيع التحدث معي بأي لغة. كتابة او صوت ايضا! OpenAPI ChatGPT"
+msgstr "اهلا! انا علّام استخدم الذكاء الاسطناعي لتوليد اجابات لأي سؤال"
 
-#: ../../../bot/bot.py:222
+#: bot/bot.py:180
+msgid "No message to retry 🤷‍♂️"
+msgstr "لا يوجد رسالة لإعادة الاجابة عليها"
+
+#: bot/bot.py:220
 msgid "Starting new dialog due to timeout"
-msgstr "بدأ حوار جديد بسبب نفاذ الوقت "
+msgstr "بدأ محادثة جديدة لإنتهاء وقت المحادثة السابقة"
 
-#: ../../../bot/bot.py:222
+#: bot/bot.py:220
 msgid "role ✅"
-msgstr "دور ✅"
+msgstr "الوظيفة"
 
-#: ../../../bot/bot.py:237
+#: bot/bot.py:235
 msgid "🥲 You sent <b>empty message</b>. Please, try again!"
-msgstr "لقد قمت بإرسال رسالة فارغة، حاول مرة اخر 🥲"
+msgstr "لقد قمت بإرسال رسالة فارغة، حاول مزة اخرى"
 
-#: bot/bot.py:299
+#: bot/bot.py:297
 msgid "Something went wrong during completion. Reason:"
-msgstr "حصل خطئ اثناء اكمال المهمة: "
+msgstr "حدث خطاء غير مقصود. أعتذر!"
 
-#: bot/bot.py:307
+#: bot/bot.py:305
 msgid ""
 "✍️ <i>Note:</i> Your current dialog is too long, so your <b>first message</b> was removed from the context.\n"
 " Send /new command to start new dialog"
-msgstr "رسالتك السابقة طويلة جدا. يرجى بدأ محادثة جديدة /new <i>ملاحظة</i>"
+msgstr "ملاحظة: رسالتك طويلة جدا، لذلك سأجيب على الجزء الاول منها"
 
-#: bot/bot.py:309
+#: bot/bot.py:307
 msgid "first messages</b> were removed from the context. Send /new command to start new dialog"
-msgstr " /new تم حذف الرسائل الاولى من المحادثة، قم ببدأ محادثة جديدة"
+msgstr "تم حذف الرسالة السابقة، يرجى بدأ محادثة جديدة"
 
-#: bot/bot.py:309
+#: bot/bot.py:307
 msgid "✍️ <i>Note:</i> Your current dialog is too long, so <b>"
-msgstr "رسالتك السابقة طويلة جدا. يرجى بدأ محادثة جديدة /new <i>ملاحظة</i>"
+msgstr "ملاحظة: رسالتك طويلة جدا"
 
-#: bot/bot.py:332
+#: bot/bot.py:317
+msgid "✅ Canceled"
+msgstr "تم الإلغاء"
+
+#: bot/bot.py:330
 msgid ""
 "⏳ Please <b>wait</b> for a reply to the previous message\n"
-msgstr "⏳ يرجى الانتظار بينما اقوم بالإجابة على الرسالة الاخيرة"
+msgstr "فضلاً انتظر حتى اثوم بالرد على رسالتك السابقة"
 
-#: bot/bot.py:333
+#: bot/bot.py:331
 msgid "Or you can /cancel it"
-msgstr "او قم بإلغاء الرسالة السابقة /cancel"
+msgstr "او تستطيع الاإلغاء عن طريق ارسال امر الالغاء"
 
-#: bot/bot.py:395
+#: bot/bot.py:393
 msgid ""
 "🥲 Your request <b>doesn't comply</b> with OpenAI's usage policies.\n"
 "What did you write there, huh?"
-msgstr "طلبك مخالف للشروط والاحكام الخاصة بالمساعد. "
+msgstr "رسالتك لا تتوافق مع شروط الاستخدام"
 
-#: bot/bot.py:417
+#: bot/bot.py:415
 msgid "Starting new dialog ✅"
-msgstr "✅ بدأ محادثة جديدة"
+msgstr "بدأ محادثة جديدة"
 
-#: bot/bot.py:438
-msgid "Select <b>chat mode</b>:"
-msgstr "اختر دور المساعد"
+#: bot/bot.py:661
+msgid "Re-generate response for previous query"
+msgstr "إنشاء اجابة جديدة للسؤال السابق"
 
+#: bot/bot.py:662
+msgid "Show balance"
+msgstr "رؤية الرصيد"
 
 #: bot/bot.py:663
-msgid "Re-generate response for previous query"
-msgstr "اعادة البحث عن اجابة للسؤال السابق"
+msgid "Show settings"
+msgstr "الإعدادات"
 
-#: bot/bot.py:666
+#: bot/bot.py:664
 msgid "Show help message"
-msgstr "عرض رسالة المساعدة"
+msgstr "طريقة الإستخدام"
+

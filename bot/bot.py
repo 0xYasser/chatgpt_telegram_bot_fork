@@ -49,12 +49,10 @@ logger = logging.getLogger(__name__)
 user_semaphores = {}
 user_tasks = {}
 
-HELP_MESSAGE = f"""Commands:
+HELP_MESSAGE = f"""{_('Commands')}:
 ⚪ /retry – {_('Regenerate last bot answer')}
 ⚪ /new – {_('Start new dialog')}
 ⚪ /role – {_('Select assistant role')} 
-⚪ /settings – {_('Show settings')}
-⚪ /balance – {_('Show balance')}
 ⚪ /help – {_('Show help')}
 
 🎨 {_('Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode')}
@@ -145,7 +143,7 @@ async def start_handle(update: Update, context: CallbackContext):
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     db.start_new_dialog(user_id)
 
-    reply_text = _("Hi! I'm <b>ChatGPT</b> bot implemented with OpenAI API 🤖\n\n")
+    reply_text = _("Hi! I'm <b>Allam</b> bot implemented with OpenAI API 🤖\n\n")
     reply_text += HELP_MESSAGE
 
     await update.message.reply_text(reply_text, parse_mode=ParseMode.HTML)
@@ -179,7 +177,7 @@ async def retry_handle(update: Update, context: CallbackContext):
 
     dialog_messages = db.get_dialog_messages(user_id, dialog_id=None)
     if len(dialog_messages) == 0:
-        await update.message.reply_text("No message to retry 🤷‍♂️")
+        await update.message.reply_text(_("No message to retry 🤷‍♂️"))
         return
 
     last_dialog_message = dialog_messages.pop()
@@ -316,7 +314,7 @@ async def message_handle(update: Update, context: CallbackContext, message=None,
         try:
             await task
         except asyncio.CancelledError:
-            await update.message.reply_text("✅ Canceled", parse_mode=ParseMode.HTML)
+            await update.message.reply_text(_("✅ Canceled"), parse_mode=ParseMode.HTML)
         else:
             pass
         finally:
@@ -659,10 +657,7 @@ async def error_handle(update: Update, context: CallbackContext) -> None:
 async def post_init(application: Application):
     await application.bot.set_my_commands([
         BotCommand("/new", _("Start new dialog")),
-        BotCommand("/role", _("Select assistant role")),
         BotCommand("/retry", _("Re-generate response for previous query")),
-        BotCommand("/balance", _("Show balance")),
-        BotCommand("/settings", _("Show settings")),
         BotCommand("/help", _("Show help message")),
     ])
 
@@ -694,14 +689,14 @@ def run_bot() -> None:
 
     application.add_handler(MessageHandler(filters.VOICE & user_filter, voice_message_handle))
 
-    application.add_handler(CommandHandler("role", show_chat_modes_handle, filters=user_filter))
-    application.add_handler(CallbackQueryHandler(show_chat_modes_callback_handle, pattern="^show_chat_modes"))
-    application.add_handler(CallbackQueryHandler(set_chat_mode_handle, pattern="^set_chat_mode"))
+    # application.add_handler(CommandHandler("role", show_chat_modes_handle, filters=user_filter))
+    # application.add_handler(CallbackQueryHandler(show_chat_modes_callback_handle, pattern="^show_chat_modes"))
+    # application.add_handler(CallbackQueryHandler(set_chat_mode_handle, pattern="^set_chat_mode"))
 
-    application.add_handler(CommandHandler("settings", settings_handle, filters=user_filter))
-    application.add_handler(CallbackQueryHandler(set_settings_handle, pattern="^set_settings"))
+    # application.add_handler(CommandHandler("settings", settings_handle, filters=user_filter))
+    # application.add_handler(CallbackQueryHandler(set_settings_handle, pattern="^set_settings"))
 
-    application.add_handler(CommandHandler("balance", show_balance_handle, filters=user_filter))
+    # application.add_handler(CommandHandler("balance", show_balance_handle, filters=user_filter))
 
     application.add_error_handler(error_handle)
 
