@@ -134,7 +134,8 @@ class Database:
         dialog_id = self.get_user_attribute(user_id, 'current_dialog_id')
         dialog = self.get_dialog_by_id(dialog_id)
         for message in messages:
-            message['date'] = message['date'].isoformat()
+            if isinstance(message['date'], datetime):
+                message['date'] = message['date'].isoformat()
         dialog['messages'] = messages
         self.dialog_container.upsert_item(body=dialog)
 
