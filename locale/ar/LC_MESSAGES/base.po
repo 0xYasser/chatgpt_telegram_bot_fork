@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2023-05-20 15:59-0700\n"
+"POT-Creation-Date: 2023-05-21 11:45-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,38 +16,26 @@ msgstr ""
 
 
 #: bot/bot.py:52
-msgid "Add bot to <b>group chat</b>: /help_group_chat"
-msgstr "تستطيع اضافة علّام الى اي محادثة جماعية عن طريق /help_group_chat"
-
-#: bot/bot.py:52
 msgid "Commands"
 msgstr "الأوامر"
 
 #: bot/bot.py:52
-msgid "Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode"
-msgstr "قم بسؤال علّام لرسم صورة معينة"
-
-#: bot/bot.py:52
 msgid "Regenerate last bot answer"
-msgstr "طلب اجابة جديدة للسؤال السابق"
+msgstr "الحصول على اجابة جديدة للسؤال السابق"
 
 #: bot/bot.py:52
 msgid "Show help"
-msgstr "طريقة إستخدام علّام"
+msgstr "مساعدة"
 
 #: bot/bot.py:52
 msgid "You can send <b>Voice Messages</b> instead of text"
-msgstr "تستطيع ارسال رسالة صوتية، وسيقوم علّام بسماعها والإجابة كتابيا عليها"
+msgstr "تستطيع ارسال رسالة صوتية"
 
-#: bot/bot.py:52 bot/bot.py:659
+#: bot/bot.py:52 bot/bot.py:657
 msgid "Start new dialog"
-msgstr "طريقة إستخدام علّام"
+msgstr "بدأ محادثة جديدة"
 
-#: bot/bot.py:52 bot/bot.py:660
-msgid "Select assistant role"
-msgstr "إختيار وظيفة علّام"
-
-#: bot/bot.py:63
+#: bot/bot.py:61
 msgid ""
 "You can add bot to any <b>group chat</b> to help and entertain its participants!\n"
 "\n"
@@ -58,84 +46,76 @@ msgid ""
 "\n"
 "To get a reply from the bot in the chat – @ <b>tag</b> it or <b>reply</b> to its message.\n"
 "For example: \"{bot_username} write a poem about Telegram\"\n"
-msgstr "يمكن اضافة علّام الى اي مجموعة محادثة. يجب اعطاء علّام دور المدير العام ليتمكن من الرد على الإستفسارات"
+msgstr "تستطيع اضافة علّام الى مجموعات المحادثة. يجب اعطاء علّام خاصية الادارة ليتمكن من الإجابة على الرسائل"
 
-#: bot/bot.py:146
+#: bot/bot.py:144
 msgid ""
 "Hi! I'm <b>Allam</b> bot implemented with OpenAI API 🤖\n"
 "\n"
-msgstr "اهلا! انا علّام استخدم الذكاء الاسطناعي لتوليد اجابات لأي سؤال"
+msgstr "مرحبا! انا علّام"
 
-#: bot/bot.py:180
+#: bot/bot.py:178
 msgid "No message to retry 🤷‍♂️"
-msgstr "لا يوجد رسالة لإعادة الاجابة عليها"
+msgstr "لا يوجد رسالة سابقة"
 
-#: bot/bot.py:220
+#: bot/bot.py:218
 msgid "Starting new dialog due to timeout"
 msgstr "بدأ محادثة جديدة لإنتهاء وقت المحادثة السابقة"
 
-#: bot/bot.py:220
+#: bot/bot.py:218
 msgid "role ✅"
 msgstr "الوظيفة"
 
-#: bot/bot.py:235
+#: bot/bot.py:233
 msgid "🥲 You sent <b>empty message</b>. Please, try again!"
-msgstr "لقد قمت بإرسال رسالة فارغة، حاول مزة اخرى"
+msgstr "لقد قمت بإرسال رسالة فارغة، "
 
-#: bot/bot.py:297
+#: bot/bot.py:295
 msgid "Something went wrong during completion. Reason:"
-msgstr "حدث خطاء غير مقصود. أعتذر!"
+msgstr "حدث خطأ غير مقصود، اعتذر!"
 
-#: bot/bot.py:305
+#: bot/bot.py:303
 msgid ""
 "✍️ <i>Note:</i> Your current dialog is too long, so your <b>first message</b> was removed from the context.\n"
 " Send /new command to start new dialog"
-msgstr "ملاحظة: رسالتك طويلة جدا، لذلك سأجيب على الجزء الاول منها"
+msgstr "ملاحظة: محادثتك الحالية طويلة جدا"
 
-#: bot/bot.py:307
+#: bot/bot.py:305
 msgid "first messages</b> were removed from the context. Send /new command to start new dialog"
-msgstr "تم حذف الرسالة السابقة، يرجى بدأ محادثة جديدة"
+msgstr "المحادثة طويلة جدا، يرجى بدأ محادثة جديدة"
 
-#: bot/bot.py:307
+#: bot/bot.py:305
 msgid "✍️ <i>Note:</i> Your current dialog is too long, so <b>"
-msgstr "ملاحظة: رسالتك طويلة جدا"
+msgstr "ملاحظة: محادثتك الحالية طويلة جدا"
 
-#: bot/bot.py:317
+#: bot/bot.py:315
 msgid "✅ Canceled"
 msgstr "تم الإلغاء"
 
-#: bot/bot.py:330
+#: bot/bot.py:328
 msgid ""
 "⏳ Please <b>wait</b> for a reply to the previous message\n"
-msgstr "فضلاً انتظر حتى اثوم بالرد على رسالتك السابقة"
+msgstr "الرجاء الانتظار..."
 
-#: bot/bot.py:331
+#: bot/bot.py:329
 msgid "Or you can /cancel it"
-msgstr "او تستطيع الاإلغاء عن طريق ارسال امر الالغاء"
+msgstr "تستطيع الغاء الرسالة عن طريق ارسال امر الإلغاء"
 
-#: bot/bot.py:393
+#: bot/bot.py:391
 msgid ""
 "🥲 Your request <b>doesn't comply</b> with OpenAI's usage policies.\n"
 "What did you write there, huh?"
-msgstr "رسالتك لا تتوافق مع شروط الاستخدام"
+msgstr "طلبك لا يتوافق مع شروط وأحكام الإستخدام"
 
-#: bot/bot.py:415
-msgid "Starting new dialog ✅"
+#: bot/bot.py:413
+msgid "بدأ محادثة جديدة"
 msgstr "بدأ محادثة جديدة"
 
-#: bot/bot.py:661
+#: bot/bot.py:658
 msgid "Re-generate response for previous query"
-msgstr "إنشاء اجابة جديدة للسؤال السابق"
+msgstr "الحصول على اجابة جديدة للسؤال السابق"
 
-#: bot/bot.py:662
-msgid "Show balance"
-msgstr "رؤية الرصيد"
-
-#: bot/bot.py:663
-msgid "Show settings"
-msgstr "الإعدادات"
-
-#: bot/bot.py:664
+#: bot/bot.py:659
 msgid "Show help message"
-msgstr "طريقة الإستخدام"
+msgstr "اظهار رسالة المساعدة"
 

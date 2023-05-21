@@ -36,7 +36,7 @@ import openai_utils
 from pathlib import Path
 import gettext
 _ = gettext.gettext
-ar = gettext.translation('base', localedir=Path(__file__).resolve() / "locale", languages=['ar'], fallback=True)
+ar = gettext.translation('base', localedir="locale", languages=['ar'], fallback=False)
 ar.install()
 _ = ar.gettext # Arabic
 
@@ -52,11 +52,9 @@ user_tasks = {}
 HELP_MESSAGE = f"""{_('Commands')}:
 ⚪ /retry – {_('Regenerate last bot answer')}
 ⚪ /new – {_('Start new dialog')}
-⚪ /role – {_('Select assistant role')} 
 ⚪ /help – {_('Show help')}
 
-🎨 {_('Generate images from text prompts in <b>👩‍🎨 Artist</b> /mode')}
-👥 {_('Add bot to <b>group chat</b>: /help_group_chat')}
+
 🎤 {_('You can send <b>Voice Messages</b> instead of text')}
 """
 
