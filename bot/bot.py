@@ -38,7 +38,7 @@ import gettext
 _ = gettext.gettext
 en = gettext.translation('base', localedir="locale", languages=['en'], fallback=False)
 en.install()
-_ = en.gettext # Arabic
+_ = en.gettext # English
 
 
 
