@@ -36,9 +36,9 @@ import openai_utils
 from pathlib import Path
 import gettext
 _ = gettext.gettext
-ar = gettext.translation('base', localedir="locale", languages=['ar'], fallback=False)
-ar.install()
-_ = ar.gettext # Arabic
+en = gettext.translation('base', localedir="locale", languages=['en'], fallback=False)
+en.install()
+_ = en.gettext # Arabic
 
 
 
